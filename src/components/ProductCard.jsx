@@ -5,23 +5,29 @@ const ProductCard = ({urun, getData}) => {
 
   const {id, name, price, image, dampingRate, amount} = urun
 
-  const BASE_URL = ""
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products"
 
   const handleDelete = async() => {
     await axios.delete(`${BASE_URL}/${id}`)
     getData()
   }
-  
-  const handleDecrease = async() => {
+
+  const handleIncrease = async() => {
     await axios.put(`${BASE_URL}/${id}`, {...urun, amount: amount + 1})
     getData()
   }
+   
   
-  const handleIncrease = async() => {
-    await axios.put(`${BASE_URL}/${id}`, {...urun, amount: amount - 1})
+  const handleDecrease = async() => {
+    if (amount > 1) {
+      await axios.put(`${BASE_URL}/${id}`, {...urun, amount: amount - 1})
     getData()
-  }
-    
+    }else {
+      alert("You can't decrease the amount below 1. Do you want to delete the product?")
+      handleDelete()
+    }    
+  }  
+ 
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -39,7 +45,7 @@ const ProductCard = ({urun, getData}) => {
               {name}
             </h5>
             <div className="product-price d-flex flex-wrap align-items-center">
-                <span className="damping-price text-warning h2">${parseFloat(price*dampingRate).toFixed(2)}</span>
+                <span className="damping-price text-warning h2">$ {parseFloat(price*dampingRate).toFixed(2)}</span>
                 <span className="h5 text-dark text-decoration-line-through">
                   {parseFloat(price).toFixed(2)}
                 </span>
@@ -58,8 +64,11 @@ const ProductCard = ({urun, getData}) => {
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product">
-                <i onClick={handleDelete} className="fa-solid fa-trash-can me-2"></i>Remove
+              <button 
+                onClick={handleDelete} 
+                className="btn btn-danger btn-sm w-100 remove-product"
+              >
+                <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>
             <div className="mt-2">

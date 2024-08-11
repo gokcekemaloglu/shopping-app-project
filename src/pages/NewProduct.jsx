@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NewProduct = () => {
+
+  const initialValue = {
+    name: "",
+    price: 0,
+    amount: 0,
+    image: "",
+    dampingRate: 0.8,
+  };
+
+  const [formData,setFormData] = useState(initialValue)
+
+  const handleSubmit = () => {
+    
+  }
+
   return (
     <div className="container">
       <article
@@ -9,7 +24,7 @@ const NewProduct = () => {
       >
         <h1 className="text-center"> New Product</h1>
 
-        <form className="p-2">
+        <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -18,9 +33,9 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              
+              value={formData.name}
               required
-              
+              onChange={(e)=>setFormData({...formData, name: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -31,9 +46,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              
+              value={formData.price}
               required
-              
+              onChange={(e)=>setFormData({...formData, price: e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -44,9 +59,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              
+              value={formData.amount}
               required
-              
+              onChange={(e)=>setFormData({...formData, amount: e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -60,10 +75,10 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              
+              value={formData.image}
               aria-describedby="basic-addon3"
               required
-              
+              onChange={(e)=>setFormData({...formData, image: e.target.value})}
             />
           </div>
           <div className="text-center">
