@@ -33,9 +33,9 @@ body {
     color: red !important;
   }
 }
-.active {
+/* .active {
   text-decoration: underline !important;
-}
+} */
 
 .card {
   border: none;
@@ -54,7 +54,7 @@ body {
   width: 4px;
   height: 100%;
   background-color: #f1f2b5;
-  transform: scaleY(1);
+  /* transform: scaleY(1); */
   transition: all 0.5s;
   transform-origin: bottom;
 }
@@ -80,6 +80,7 @@ body {
   font-size: 11px;
 }
 
+/* about sayfasındaki iconlar */
 .social-list {
   display: flex;
   list-style: none;
@@ -93,6 +94,7 @@ body {
   font-size: 19px;
 }
 
+/* main deki button */
 .main-buttons button:nth-child(1) {
   border: 1px solid white !important;
   background-color: white;
@@ -111,6 +113,8 @@ body {
   color: #135058;
   height: 40px;
 }
+
+/* about taki butonlar */
 
 .buttons button:nth-child(1):hover {
   border: 1px solid #135058 !important;

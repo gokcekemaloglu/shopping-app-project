@@ -18,7 +18,7 @@ const About = () => {
               <span className="bg-secondary p-1 px-4 rounded text-white">
                 Pro
               </span>
-              <h5 className="mt-2 mb-0">Anthony Harold</h5>
+              <h5 className="mt-2 mb-0">Gökçe Kemaloğlu</h5>
               <span>Fullstack Developer</span>
               <div className="px-4 mt-1">
                 <p className="fonts">

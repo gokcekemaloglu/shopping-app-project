@@ -1,21 +1,12 @@
+import AppRouter from "./router/AppRouter";
 
-import Main from "./pages/Main";
-import NewProduct from "./pages/NewProduct";
-import ProductList from "./pages/ProductList";
-import About from "./pages/About";
-import Navbar from "./components/Navbar";
+// index.html ye bootstrap in script teşekkürü ile fontAwesome ın teşekkür link ini yapıştırdık
 
 function App() {
-
-  
-
   return (
-    <div className="bg-light app">
-      <Navbar/>
-      <Main/>
-      <About/>
-      <NewProduct/>
-      <ProductList/>
+    <div>
+
+      <AppRouter/>
     </div>
   );
 }
