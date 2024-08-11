@@ -1,6 +1,10 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const NewProduct = () => {
+const NewProduct = ({getData}) => {
+
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products"
 
   const initialValue = {
     name: "",
@@ -11,9 +15,13 @@ const NewProduct = () => {
   };
 
   const [formData,setFormData] = useState(initialValue)
+  const navigate = useNavigate()
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    await axios.post(BASE_URL, formData)
+    setFormData(initialValue)
+    navigate("/products")
   }
 
   return (
